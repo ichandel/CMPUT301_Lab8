@@ -79,19 +79,28 @@ public class CustomListTest {
 
     /**
      * create multiple cities
-     * add cities to list
-     * check list size equals countCities
-     * remove city
-     * check list size equals CountCities
+     * add cities to list and check list size after each addition
+     * remove cities and check list size after each removal
      */
     @Test
     void testCountCities() {
         list = MockCityList();
-        list.addCity(new City("Estevan", "SK"));
-        list.addCity(new City("Toronto", "Ontario"));
-        list.addCity(new City("Montreal", "Quebec"));
-        assertEquals(list.countCities(), 3);
-        list.deleteCity(new City("Toronto", "Ontario"));
+        assertEquals(list.countCities(), 0);
+        City city1 = new City("Estevan", "SK");
+        City city2 = new City("Toronto", "Ontario");
+        City city3 = new City("Montreal", "Quebec");
+        list.addCity(city1);
+        assertEquals(list.countCities(), 1);
+        list.addCity(city2);
         assertEquals(list.countCities(), 2);
+        list.addCity(city3);
+        assertEquals(list.countCities(), 3);
+        list.deleteCity(city2);
+        assertEquals(list.countCities(), 2);
+        list.deleteCity(city1);
+        assertEquals(list.countCities(), 1);
+        list.deleteCity(city3);
+        assertEquals(list.countCities(), 0);
+
     }
 }
