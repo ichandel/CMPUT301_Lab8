@@ -82,7 +82,9 @@ public class CustomList extends ArrayAdapter<City> {
      *   if the city does not exist in the list
      */
     public void deleteCity(City city) {
-
+        if (hasCity(city)) {
+            cities.remove(city);
+        }
     }
 
 }
