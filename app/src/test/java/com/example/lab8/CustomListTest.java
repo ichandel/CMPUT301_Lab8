@@ -50,12 +50,9 @@ public class CustomListTest {
         list = MockCityList();
 
         City mockCity = new City("Estevan", "SK");
-        // This line checks if the first city is in the cityList
         list.addCity(mockCity);
 
         assertTrue(list.hasCity(mockCity));
-
-        // Asserts that the newly created city object is not in the list
         assertFalse(list.hasCity(new City("Toronto", "Ontario")));
 
     }
@@ -85,20 +82,28 @@ public class CustomListTest {
     @Test
     void testCountCities() {
         list = MockCityList();
+
         assertEquals(list.countCities(), 0);
+
         City city1 = new City("Estevan", "SK");
         City city2 = new City("Toronto", "Ontario");
         City city3 = new City("Montreal", "Quebec");
+
         list.addCity(city1);
         assertEquals(list.countCities(), 1);
+
         list.addCity(city2);
         assertEquals(list.countCities(), 2);
+
         list.addCity(city3);
         assertEquals(list.countCities(), 3);
+
         list.deleteCity(city2);
         assertEquals(list.countCities(), 2);
+
         list.deleteCity(city1);
         assertEquals(list.countCities(), 1);
+
         list.deleteCity(city3);
         assertEquals(list.countCities(), 0);
 
