@@ -59,4 +59,21 @@ public class CustomListTest {
         assertFalse(list.hasCity(new City("Toronto", "Ontario")));
 
     }
+
+    /**
+     * create a city
+     * add city to list
+     * check if the city exists in the list
+     * delete city from list
+     * check if the city exists in the list
+     */
+    @Test
+    void testDeleteCity() {
+        list = MockCityList();
+        City mockCity = new City("Estevan", "SK");
+        list.addCity(mockCity);
+        assertTrue(list.hasCity(mockCity));
+        list.deleteCity(mockCity);
+        assertFalse(list.hasCity(mockCity));
+    }
 }
